@@ -1,0 +1,10 @@
+---
+- name: OS Update | Apply security and other patches
+  hosts: all
+  become: true
+  tasks:
+    - name: Update & Upgrade
+      apt:
+        update_cache: yes
+        upgrade: "yes"
+      when: ansible_os_family == "Debian"
